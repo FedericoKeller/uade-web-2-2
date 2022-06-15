@@ -1,37 +1,42 @@
-@charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: #edf0f1;
   padding: 80px 0 0 0;
 }
 
-body, input {
-  font-family: 'Roboto', sans-serif;
+body,
+input {
+  font-family: "Roboto", sans-serif;
 }
 
-.main-title {
-    font-size: 26px;
-    text-align: center;
+.center-text {
+  text-align: center;
+}
+
+.u-margin-bottom--small {
+  margin-bottom: 55px;
 }
 
 ul.series {
   width: 100%;
-  float: left;
+  display: flex;
+  flex-direction: column;
 }
 
 ul.series li {
   width: 100%;
   min-height: 50px;
-  float: left;
   font-size: 14px;
   font-weight: 500;
   color: #444;
   line-height: 22px;
-
   background: #fff;
   border-radius: 5px;
   position: relative;
-  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.1);
   margin: 0 0 10px 0;
   padding: 14px;
   word-break: break-word;
@@ -42,7 +47,7 @@ ul.series li:last-of-type {
 }
 
 ul.series#series:empty:after {
-  content: 'Ya ha visto todas las serie que quiere.';
+  content: "Ya ha visto todas las serie que quiere.";
   margin: 15px 0 0 0;
 }
 
@@ -55,13 +60,93 @@ ul.series#series:after {
 }
 
 .buttons {
-    margin: 16px 0;
-    display: flex;
-    justify-content: flex-end;
+  margin: 16px 0;
+  display: flex;
+  justify-content: flex-end;
 }
+
+.clicked {
+  transform: translate(3px, 3px) !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
+};
 
 
 #my-series {
-    min-height: 50vh;
-    height: 100%;
+  min-height: 50vh;
+  height: 100%;
+}
+
+#contact {
+  margin-bottom: 150px;
+}
+
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.about-us .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.about-us h2 {
+  font-weight: 400;
+}
+.about-us .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.row {
+  justify-content: center;
+}
+
+.rounded-circle {
+  margin-bottom: 25px;
+}
+
+.feature-divider {
+  margin: 5rem 0;
+}
+
+.feature-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+}
+
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .feature-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .feature-heading {
+    margin-top: 7rem;
+  }
 }

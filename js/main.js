@@ -1,13 +1,20 @@
-function nuevoID () {
-    return Math.random().toString(36).substr(2, 9);
-  }
-	
   let series = [];
+
+  $("button").on("touchstart mousedown", function () {
+    $(this).addClass("clicked");
+  });
+  
+  $("button").on("touchend mouseup", function () {
+    $(this).removeClass("clicked");
+    $(this).blur();
+  });
+
+
   
   const seriesPendientesEl = document.getElementById("series");
   
   const crearSerie = (serie, platform, description) => {
-    return {id: nuevoID(), serie, platform, description, pendiente: false, fechaCreacion: Date(Date.now()).toString()}
+    return {serie, platform, description}
   }
   
   
@@ -19,7 +26,7 @@ function nuevoID () {
   
     let serieNueva = crearSerie(serie, platform, description);
     
-    series = [...series, serieNueva];
+    series.push(serieNueva);
     
     
     mostrarSeries();
@@ -27,12 +34,9 @@ function nuevoID () {
   
   
   const mostrarSeries = () => {
-    let pendientes = series.filter(serie => serie.pendiente == false);
-  
-
-    const pendientesHTML = pendientes.map(serie =>
+    const pendientesHTML = series.map(serie =>
        `
-      <li id="${serie.id}">
+      <li>
         <ul>
             <li>Serie: ${serie.serie}</li>
             <li>Plataforma: ${serie.platform}</li>
